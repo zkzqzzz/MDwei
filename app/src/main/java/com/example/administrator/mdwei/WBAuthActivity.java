@@ -21,22 +21,28 @@ import java.text.SimpleDateFormat;
 
 /**
  * Created by Administrator on 2016/5/27.
- *
- *  该类如何进行授权、SSO登陆。
+ * <p/>
+ * 该类如何进行授权、SSO登陆。
  */
 public class WBAuthActivity extends Activity {
 
     private static final String TAG = "weibosdk";
 
-    /** 显示认证后的信息，如 AccessToken */
+    /**
+     * 显示认证后的信息，如 AccessToken
+     */
     private TextView mTokenText;
 
     private AuthInfo mAuthInfo;
 
-    /** 封装了 "access_token"，"expires_in"，"refresh_token"，并提供了他们的管理功能  */
+    /**
+     * 封装了 "access_token"，"expires_in"，"refresh_token"，并提供了他们的管理功能
+     */
     private Oauth2AccessToken mAccessToken;
 
-    /** 注意：SsoHandler 仅当 SDK 支持 SSO 时有效 */
+    /**
+     * 注意：SsoHandler 仅当 SDK 支持 SSO 时有效
+     */
     private SsoHandler mSsoHandler;
 
     @Override
@@ -50,7 +56,7 @@ public class WBAuthActivity extends Activity {
         hintView.setMovementMethod(new ScrollingMovementMethod());
 
         // 创建微博实例
-        //mWeiboAuth = new WeiboAuth(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
+        //   mWeiboAuth = new WeiboAuth(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
         // 快速授权时，请不要传入 SCOPE，否则可能会授权不成功
         mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
         mSsoHandler = new SsoHandler(WBAuthActivity.this, mAuthInfo);
@@ -68,7 +74,7 @@ public class WBAuthActivity extends Activity {
         findViewById(R.id.obtain_token_via_mobile).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSsoHandler.registerOrLoginByMobile("验证码登录",new AuthListener());
+                mSsoHandler.registerOrLoginByMobile("验证码登录", new AuthListener());
             }
         });
 
@@ -102,19 +108,16 @@ public class WBAuthActivity extends Activity {
         findViewById(R.id.obtain_token_via_code).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-           //     startActivity(new Intent(WBAuthActivity.this, WBAuthCodeActivity.class));
+                //     startActivity(new Intent(WBAuthActivity.this, WBAuthCodeActivity.class));
             }
         });
-
-        // 从 SharedPreferences 中读取上次已保存好 AccessToken 等信息，
+// 从 SharedPreferences 中读取上次已保存好 AccessToken 等信息，
         // 第一次启动本应用，AccessToken 不可用
         mAccessToken = AccessTokenKeeper.readAccessToken(this);
         if (mAccessToken.isSessionValid()) {
             updateTokenView(true);
         }
     }
-
-
 
 
     /**
@@ -137,7 +140,7 @@ public class WBAuthActivity extends Activity {
     /**
      * 微博认证授权回调类。
      * 1. SSO 授权时，需要在 {@link #onActivityResult} 中调用 {@link SsoHandler#authorizeCallBack} 后，
-     *    该回调才会被执行。
+     * 该回调才会被执行。
      * 2. 非 SSO 授权时，当授权结束后，该回调就会被执行。
      * 当授权成功后，请保存该 access_token、expires_in、uid 等信息到 SharedPreferences 中。
      */
@@ -148,7 +151,7 @@ public class WBAuthActivity extends Activity {
             // 从 Bundle 中解析 Token
             mAccessToken = Oauth2AccessToken.parseAccessToken(values);
             //从这里获取用户输入的 电话号码信息
-            String  phoneNum =  mAccessToken.getPhoneNum();
+          //  Bundle[{access_token=2.00M5tBSEQyZ8bC20a6982ed5YBvDSE, refresh_token=2.00M5tBSEQyZ8bC391005a8edYsPcHE, expires_in=157679999, uid=3930956624, remind_in=157679999}]
             if (mAccessToken.isSessionValid()) {
                 // 显示 Token
                 updateTokenView(false);
@@ -157,6 +160,7 @@ public class WBAuthActivity extends Activity {
                 AccessTokenKeeper.writeAccessToken(WBAuthActivity.this, mAccessToken);
                 Toast.makeText(WBAuthActivity.this,
                         R.string.toast_auth_success, Toast.LENGTH_SHORT).show();
+                finish();
             } else {
                 // 以下几种情况，您会收到 Code：
                 // 1. 当您未在平台上注册的应用程序的包名与签名时；
