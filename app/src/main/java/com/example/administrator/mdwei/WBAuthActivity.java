@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.mdwei.Util.Bean.AccessTokenKeeper;
-import com.example.administrator.mdwei.Util.Constants;
+import com.example.administrator.mdwei.util.bean.AccessTokenKeeper;
+import com.example.administrator.mdwei.util.Constants;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;

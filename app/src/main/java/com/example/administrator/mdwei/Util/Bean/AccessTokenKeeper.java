@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.administrator.mdwei.Util.Bean;
+package com.example.administrator.mdwei.util.bean;
 
 import android.content.Context;
 import android.content.SharedPreferences;

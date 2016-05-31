@@ -1,4 +1,4 @@
-package com.example.administrator.mdwei.Util;
+package com.example.administrator.mdwei.util;
 
 /**
  * Created by Administrator on 2016/5/27.

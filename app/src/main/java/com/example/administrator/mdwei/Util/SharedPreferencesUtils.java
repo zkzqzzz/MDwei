@@ -1,4 +1,4 @@
-package com.example.administrator.mdwei.Util;
+package com.example.administrator.mdwei.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
