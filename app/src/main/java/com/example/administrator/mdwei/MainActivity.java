@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +16,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.mdwei.service.UsersService;
@@ -24,9 +24,9 @@ import com.example.administrator.mdwei.util.bean.AccessTokenKeeper;
 import com.google.gson.JsonObject;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import java.util.ArrayList;
+import java.util.List;
+
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -37,7 +37,7 @@ import rx.schedulers.Schedulers;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private ViewPager mMianViewpage;
-
+private TabLayout mTabLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,12 +45,12 @@ public class MainActivity extends AppCompatActivity
 
 
         //如果Token为空则跳转到授权登陆界面
-        Oauth2AccessToken mAccessToken = AccessTokenKeeper.readAccessToken(this);
+      /*  Oauth2AccessToken mAccessToken = AccessTokenKeeper.readAccessToken(this);
         if (!mAccessToken.isSessionValid()) {
             Intent intent = new Intent(MainActivity.this, WBAuthActivity.class);
             startActivity(intent);
             return;
-        }
+        }*/
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -73,17 +73,24 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        mMianViewpage= (ViewPager) findViewById(R.id.main_viewpage);
+        mMianViewpage.setOffscreenPageLimit(3);
+
+
         initView();
     }
 
     private void initView() {
+        mTabLayout= (TabLayout) findViewById(R.id.tabs);
+        List<String> mTitleList =new ArrayList<>();
+        mTitleList.add("看朋友");
+        mTitleList.add("热门微博");
+        mTitleList.add("热门话题");
+        mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(0)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(1)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(2)));
 
-
-        mMianViewpage= (ViewPager) findViewById(R.id.main_viewpage);
-
-
-
-        getUsersShow();
+     //   getUsersShow();
     }
 
     @Override
