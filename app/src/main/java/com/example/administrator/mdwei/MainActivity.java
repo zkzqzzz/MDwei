@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +21,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.administrator.mdwei.model.goodfriend.GoodFriendFragment;
+import com.example.administrator.mdwei.model.hotblog.HotBlogFragment;
+import com.example.administrator.mdwei.model.topic.TopicFragment;
 import com.example.administrator.mdwei.service.UsersService;
 import com.example.administrator.mdwei.util.URLConstant;
 import com.example.administrator.mdwei.util.bean.AccessTokenKeeper;
@@ -37,7 +43,8 @@ import rx.schedulers.Schedulers;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private ViewPager mMianViewpage;
-private TabLayout mTabLayout;
+    private TabLayout mTabLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +80,7 @@ private TabLayout mTabLayout;
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        mMianViewpage= (ViewPager) findViewById(R.id.main_viewpage);
+        mMianViewpage = (ViewPager) findViewById(R.id.main_viewpage);
         mMianViewpage.setOffscreenPageLimit(3);
 
 
@@ -81,8 +88,8 @@ private TabLayout mTabLayout;
     }
 
     private void initView() {
-        mTabLayout= (TabLayout) findViewById(R.id.tabs);
-        List<String> mTitleList =new ArrayList<>();
+        mTabLayout = (TabLayout) findViewById(R.id.tabs);
+        List<String> mTitleList = new ArrayList<>();
         mTitleList.add("看朋友");
         mTitleList.add("热门微博");
         mTitleList.add("热门话题");
@@ -90,7 +97,17 @@ private TabLayout mTabLayout;
         mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(1)));
         mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(2)));
 
-     //   getUsersShow();
+        List<Fragment> fragments = new ArrayList<>();
+        fragments.add(new GoodFriendFragment());
+        fragments.add(new HotBlogFragment());
+        fragments.add(new TopicFragment());
+        PageAdapter adapter =
+                new PageAdapter(getSupportFragmentManager(), fragments, mTitleList);
+        mMianViewpage.setAdapter(adapter);
+        mTabLayout.setupWithViewPager(mMianViewpage);
+        mTabLayout.setTabsFromPagerAdapter(adapter);
+
+        //   getUsersShow();
     }
 
     @Override
@@ -183,6 +200,33 @@ private TabLayout mTabLayout;
                         Log.i("LOG", "" + movieEntity);
                     }
                 });
+    }
+
+
+    public class PageAdapter extends FragmentPagerAdapter {
+        private List<Fragment> mFragments;
+        private List<String> mTitles;
+
+        public PageAdapter(FragmentManager fm, List<Fragment> fragments, List<String> titles) {
+            super(fm);
+            this.mFragments = fragments;
+            this.mTitles = titles;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragments.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragments.size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mTitles.get(position);
+        }
     }
 
 
