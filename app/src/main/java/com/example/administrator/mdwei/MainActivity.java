@@ -19,16 +19,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.example.administrator.mdwei.bean.Users;
 import com.example.administrator.mdwei.model.goodfriend.GoodFriendFragment;
 import com.example.administrator.mdwei.model.hotblog.HotBlogFragment;
 import com.example.administrator.mdwei.model.topic.TopicFragment;
 import com.example.administrator.mdwei.service.UsersService;
 import com.example.administrator.mdwei.util.URLConstant;
-import com.example.administrator.mdwei.util.bean.AccessTokenKeeper;
+import com.example.administrator.mdwei.util.AccessTokenKeeper;
 import com.google.gson.JsonObject;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
+import com.sina.weibo.sdk.openapi.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,23 +45,17 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener{
     private ViewPager mMianViewpage;
     private TabLayout mTabLayout;
+    private ImageView iv_head_icon;
+
+    private Users mUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        //如果Token为空则跳转到授权登陆界面
-      /*  Oauth2AccessToken mAccessToken = AccessTokenKeeper.readAccessToken(this);
-        if (!mAccessToken.isSessionValid()) {
-            Intent intent = new Intent(MainActivity.this, WBAuthActivity.class);
-            startActivity(intent);
-            return;
-        }*/
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -75,17 +73,26 @@ public class MainActivity extends AppCompatActivity
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
-        toggle.syncState();
 
+        toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        mMianViewpage = (ViewPager) findViewById(R.id.main_viewpage);
+        mMianViewpage= (ViewPager) findViewById(R.id.main_viewpage);
         mMianViewpage.setOffscreenPageLimit(3);
-
+        //如果Token为空则跳转到授权登陆界面
+        Oauth2AccessToken mAccessToken = AccessTokenKeeper.readAccessToken(this);
 
         initView();
+        if (!mAccessToken.isSessionValid()) {
+            Intent intent = new Intent(MainActivity.this, WBAuthActivity.class);
+            startActivity(intent);
+            return;
+        }else {
+            getUsersShow();
+        }
     }
+
+
 
     private void initView() {
         mTabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -106,37 +113,32 @@ public class MainActivity extends AppCompatActivity
         mMianViewpage.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mMianViewpage);
         mTabLayout.setTabsFromPagerAdapter(adapter);
-
-        //   getUsersShow();
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
+    //当导航项被点击时的回调
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -156,7 +158,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_send) {
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -184,7 +185,7 @@ public class MainActivity extends AppCompatActivity
         movieService.getUsersShow(token, uid)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<JsonObject>() {
+                .subscribe(new Subscriber<Users>() {
                     @Override
                     public void onCompleted() {
                         Toast.makeText(MainActivity.this, "Get Top Movie Completed", Toast.LENGTH_SHORT).show();
@@ -196,8 +197,10 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     @Override
-                    public void onNext(JsonObject movieEntity) {
-                        Log.i("LOG", "" + movieEntity);
+                    public void onNext(Users movieEntity) {
+                        mUsers = movieEntity;
+                        Log.i("LOG", "" + movieEntity + movieEntity.getProfile_image_url() + "*-*" + iv_head_icon);
+
                     }
                 });
     }
@@ -228,6 +231,18 @@ public class MainActivity extends AppCompatActivity
             return mTitles.get(position);
         }
     }
+
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
 
 
 }

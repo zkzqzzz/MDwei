@@ -1,5 +1,6 @@
 package com.example.administrator.mdwei.service;
 
+import com.example.administrator.mdwei.bean.Users;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
@@ -13,7 +14,7 @@ import rx.Observable;
 public interface UsersService {
 
     @GET("users/show.json")
-    Observable<JsonObject> getUsersShow(@Query("access_token") String token, @Query("uid") long uid);
+    Observable<Users> getUsersShow(@Query("access_token") String token, @Query("uid") long uid);
 
 
 }
