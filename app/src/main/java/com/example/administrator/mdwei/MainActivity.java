@@ -45,7 +45,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener {
     private ViewPager mMianViewpage;
     private TabLayout mTabLayout;
     private ImageView iv_head_icon;
@@ -77,7 +77,12 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        mMianViewpage= (ViewPager) findViewById(R.id.main_viewpage);
+
+        View view = navigationView.inflateHeaderView(R.layout.nav_header_main);
+        iv_head_icon = (ImageView) view.findViewById(R.id.iv_head_icon);
+
+
+        mMianViewpage = (ViewPager) findViewById(R.id.main_viewpage);
         mMianViewpage.setOffscreenPageLimit(3);
         //如果Token为空则跳转到授权登陆界面
         Oauth2AccessToken mAccessToken = AccessTokenKeeper.readAccessToken(this);
@@ -87,11 +92,10 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, WBAuthActivity.class);
             startActivity(intent);
             return;
-        }else {
+        } else {
             getUsersShow();
         }
     }
-
 
 
     private void initView() {
@@ -116,8 +120,6 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -138,6 +140,7 @@ public class MainActivity extends AppCompatActivity
         }
         return super.onOptionsItemSelected(item);
     }
+
     //当导航项被点击时的回调
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -198,8 +201,9 @@ public class MainActivity extends AppCompatActivity
 
                     @Override
                     public void onNext(Users movieEntity) {
-                        mUsers = movieEntity;
-                        Log.i("LOG", "" + movieEntity + movieEntity.getProfile_image_url() + "*-*" + iv_head_icon);
+                        Glide.with(MainActivity.this)
+                                .load(movieEntity.getProfile_image_url())
+                                .into(iv_head_icon);
 
                     }
                 });
@@ -242,7 +246,6 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
 
 
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        android:id="@+id/wlistview_footer_progressbar_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="9dp"
+        android:paddingTop="9dp"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/wlistview_footer_progressbar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="17dp"
+            android:layout_height="17dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="加载中..."
+            android:textColor="#717171"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/wlistview_footer_hint_load_more"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:text="查看更多"
+        android:textColor="#717171"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/wlistview_footer_hint_no_more"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:text="没有更多内容了..."
+        android:textColor="#717171"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+</merge>
