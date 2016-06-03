@@ -37,4 +37,9 @@
         <item name="android:fadingEdge">none</item>
         <item name="android:cacheColorHint">#00000000</item>
     </style>
+
+    <style name="ptr_layout">
+        <item name="android:id">@id/ptr_layout</item>
+    </style>
+
 </resources>

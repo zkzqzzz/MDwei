@@ -4,17 +4,16 @@
     android:layout_height="match_parent">
 
     <com.example.administrator.pulltorefresh.PtrClassicFrameLayout
-        android:id="@+id/rotate_header_list_view_frame"
+        style="@style/ptr_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ListView
-            android:id="@+id/wlistview"
+        <com.example.administrator.pulltorefresh.listview.WListView
             style="@style/listView_style"
             android:divider="@color/translucent"
             android:dividerHeight="@dimen/common_space">
 
-        </ListView>
+        </com.example.administrator.pulltorefresh.listview.WListView>
 
 
     </com.example.administrator.pulltorefresh.PtrClassicFrameLayout>

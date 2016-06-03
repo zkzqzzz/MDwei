@@ -12,8 +12,8 @@ public abstract class BaseFragment extends Fragment {
      */
     public void init(View view){
         initView(view);
-        initData();
         initListener();
+        initData();
 
     }
     public abstract void initView(View view);
