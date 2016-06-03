@@ -8,13 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.wealink.job.component.pulltorefresh.WListView
+        <ListView
             android:id="@+id/wlistview"
             style="@style/listView_style"
             android:divider="@color/translucent"
             android:dividerHeight="@dimen/common_space">
 
-        </com.wealink.job.component.pulltorefresh.WListView>
+        </ListView>
 
 
     </com.example.administrator.pulltorefresh.PtrClassicFrameLayout>

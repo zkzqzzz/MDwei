@@ -15,8 +15,6 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
-
-
     <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
         <item name="tabIndicatorColor">@color/colorPrimary</item>
         <item name="tabSelectedTextColor">@color/colorPrimary</item>
@@ -28,5 +26,15 @@
         <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textColor">@color/tab_text_gray</item>
         <item name="textAllCaps">true</item>
+    </style>
+
+
+    <style name="listView_style">
+        <item name="android:id">@id/list_view</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:cacheColorHint">#00000000</item>
     </style>
 </resources>

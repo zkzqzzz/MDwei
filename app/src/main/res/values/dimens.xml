@@ -7,6 +7,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
+    <dimen name="common_space">4dp</dimen>
+
 
     <dimen name="space_6">6dp</dimen>
     <dimen name="space_12">12dp</dimen>

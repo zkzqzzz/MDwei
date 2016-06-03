@@ -13,6 +13,7 @@ import com.example.administrator.pulltorefresh.PtrClassicFrameLayout;
 import com.example.administrator.pulltorefresh.PtrDefaultHandler;
 import com.example.administrator.pulltorefresh.PtrFrameLayout;
 import com.example.administrator.pulltorefresh.PtrHandler;
+import com.example.administrator.pulltorefresh.listview.OnItemSingleClickListener;
 import com.example.administrator.pulltorefresh.listview.WListView;
 
 /**
@@ -45,7 +46,7 @@ public class HotBlogFragment  extends BaseFragment {
             }
     });
 
-        wlistview= (WListView) view.findViewById(R.id.wlistview);
+        wlistview= (WListView) view.findViewById(R.id.list_view);
         //加载更多
         wlistview.setOnLoadMore(new WListView.OnLoadMore() {
             @Override
@@ -53,14 +54,14 @@ public class HotBlogFragment  extends BaseFragment {
               //  loadData(false);
             }
         });
-      /*  wlistview.setOnItemClickListener(new OnItemSingleClickListener() {
+       wlistview.setOnItemClickListener(new OnItemSingleClickListener() {
             @Override
             public void onItemSingleClick(AdapterView<?> parent, View view, int position, long id) {
-                if (listView.isLockIsLoadingData() && position == adapter.getCount())
+                if (wlistview.isLockIsLoadingData() && position == wlistview.getCount())
                     return;
-                itemClick(parent, view, position, id);
+               // itemClick(parent, view, position, id);
             }
-        });*/
+        });
 
 
     }
