@@ -1,4 +1,4 @@
-package com.example.administrator.mdwei.base.adapter;
+package com.example.administrator.pulltorefresh.baseadapter;
 
 import android.content.Context;
 import android.util.SparseArray;
@@ -10,6 +10,9 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+
 
 /**
  * ViewHolder pattern for ListView adapter. It's support several types of view
@@ -107,15 +110,15 @@ public class ViewHolderHelper {
 
 	public ViewHolderHelper setImageFromUrl(int viewId, String url) {
 		ImageView imageView = retrieveView(viewId);
-		// Picasso.with(mContext).load(url).into(imageView);
-	//	setImageFromUrl(viewId, url, R.drawable.default_diary_ic);
+		Glide.with(mContext)
+				.load(url)
+				.into(imageView);
 		return this;
 	}
 
 	public ViewHolderHelper setImageFromUrl(int viewId, String url, int defaultImageId) {
 		ImageView imageView = retrieveView(viewId);
-	//	DdUtil.displayImage(mContext, imageView, url, defaultImageId);
-		// mq.id(imageView).image(url,defaultImageId);
+
 		return this;
 	}
 

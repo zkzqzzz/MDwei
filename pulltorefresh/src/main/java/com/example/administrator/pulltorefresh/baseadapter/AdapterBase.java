@@ -1,4 +1,4 @@
-package com.example.administrator.mdwei.base.adapter;
+package com.example.administrator.pulltorefresh.baseadapter;
 
 import android.content.Context;
 import android.util.Log;

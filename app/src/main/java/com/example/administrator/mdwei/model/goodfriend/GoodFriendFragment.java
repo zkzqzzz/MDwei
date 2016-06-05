@@ -2,28 +2,24 @@ package com.example.administrator.mdwei.model.goodfriend;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.example.administrator.mdwei.BaseFragment;
 import com.example.administrator.mdwei.R;
+import com.example.administrator.mdwei.adapter.GoodFriendAdapter;
 import com.example.administrator.mdwei.bean.GoodFriend;
-import com.example.administrator.mdwei.bean.PublicTimeline;
 import com.example.administrator.mdwei.service.GoodFriendService;
-import com.example.administrator.mdwei.service.HotBlogService;
 import com.example.administrator.mdwei.util.AccessTokenKeeper;
 import com.example.administrator.mdwei.util.URLConstant;
 import com.example.administrator.pulltorefresh.PtrClassicFrameLayout;
 import com.example.administrator.pulltorefresh.PtrDefaultHandler;
 import com.example.administrator.pulltorefresh.PtrFrameLayout;
 import com.example.administrator.pulltorefresh.PtrHandler;
-import com.example.administrator.pulltorefresh.listview.OnItemSingleClickListener;
-import com.example.administrator.pulltorefresh.listview.WListView;
-import com.google.gson.JsonObject;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 
 import java.util.HashMap;
@@ -42,7 +38,8 @@ import rx.schedulers.Schedulers;
 public class GoodFriendFragment extends BaseFragment {
 
     private PtrClassicFrameLayout prtLay;
-    private WListView wlistview;
+    private RecyclerView mRecyclerView;
+    private GoodFriendAdapter  mAdapter;
 
     @Nullable
     @Override
@@ -55,7 +52,10 @@ public class GoodFriendFragment extends BaseFragment {
     @Override
     public void initView(View view) {
         prtLay = (PtrClassicFrameLayout) view.findViewById(R.id.ptr_layout);
-        wlistview = (WListView) view.findViewById(R.id.list_view);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.list_view);
+        mAdapter=new GoodFriendAdapter(getActivity());
+        mRecyclerView.setAdapter(mAdapter);
+
     }
 
     @Override
@@ -72,20 +72,7 @@ public class GoodFriendFragment extends BaseFragment {
             }
         });
         //加载更多
-        wlistview.setOnLoadMore(new WListView.OnLoadMore() {
-            @Override
-            public void loadMore() {
-                //  loadData(false);
-            }
-        });
-        wlistview.setOnItemClickListener(new OnItemSingleClickListener() {
-            @Override
-            public void onItemSingleClick(AdapterView<?> parent, View view, int position, long id) {
-                if (wlistview.isLockIsLoadingData() && position == wlistview.getCount())
-                    return;
-                // itemClick(parent, view, position, id);
-            }
-        });
+
     }
 
     @Override
@@ -123,7 +110,7 @@ public class GoodFriendFragment extends BaseFragment {
 
                     @Override
                     public void onNext(GoodFriend movieEntity) {
-                        Log.i("LOG", "**2222222" + movieEntity);
+                        mAdapter.setData(movieEntity.getStatuses());
                     }
                 });
 

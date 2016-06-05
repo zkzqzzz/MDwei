@@ -29,8 +29,8 @@
     </style>
 
 
-    <style name="listView_style">
-        <item name="android:id">@id/list_view</item>
+    <style name="recycler_view_style">
+        <item name="android:id">@id/recycler_view</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:listSelector">@android:color/transparent</item>
