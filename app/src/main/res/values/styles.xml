@@ -31,11 +31,8 @@
 
     <style name="recycler_view_style">
         <item name="android:id">@id/recycler_view</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:listSelector">@android:color/transparent</item>
-        <item name="android:fadingEdge">none</item>
-        <item name="android:cacheColorHint">#00000000</item>
     </style>
 
     <style name="ptr_layout">

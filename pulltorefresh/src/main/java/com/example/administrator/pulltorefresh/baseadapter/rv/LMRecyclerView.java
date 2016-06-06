@@ -1,4 +1,4 @@
-package com.example.administrator.mdwei.baseadapter;
+package com.example.administrator.pulltorefresh.baseadapter.rv;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 
 /**
  * Created by jyp on 15/8/10.
@@ -54,15 +55,15 @@ public class LMRecyclerView extends RecyclerView {
     private void checkIfEmpty() {
         if (mEmptyView != null && getAdapter() != null) {
             final boolean emptyViewVisible = getAdapter().getItemCount() == 0;
-            mEmptyView.setVisibility(emptyViewVisible ? VISIBLE : GONE);
-            setVisibility(emptyViewVisible ? GONE : VISIBLE);
+            mEmptyView.setVisibility(emptyViewVisible ? View.VISIBLE : View.GONE);
+            setVisibility(emptyViewVisible ? View.GONE : View.VISIBLE);
         }
     }
 
     public void addFooter() {
         if (getAdapter() instanceof BaseRecyclerAdapter) {
             mFooterView = new FooterView(getContext());
-            mFooterView.setLayoutParams(new MarginLayoutParams(MarginLayoutParams.MATCH_PARENT, MarginLayoutParams.WRAP_CONTENT));
+            mFooterView.setLayoutParams(new ViewGroup.MarginLayoutParams(ViewGroup.MarginLayoutParams.MATCH_PARENT, ViewGroup.MarginLayoutParams.WRAP_CONTENT));
             ((BaseRecyclerAdapter) getAdapter()).addFooter(mFooterView);
         }
     }

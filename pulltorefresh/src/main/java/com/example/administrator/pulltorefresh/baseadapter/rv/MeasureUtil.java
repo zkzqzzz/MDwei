@@ -1,4 +1,4 @@
-package com.example.administrator.mdwei.baseadapter;
+package com.example.administrator.pulltorefresh.baseadapter.rv;
 
 import android.view.View;
 import android.view.ViewGroup.MarginLayoutParams;

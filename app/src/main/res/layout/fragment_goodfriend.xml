@@ -9,9 +9,9 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="@dimen/space_8"
             style="@style/recycler_view_style"
-            android:divider="@color/translucent"
-            android:dividerHeight="@dimen/common_space">
+           >
 
         </android.support.v7.widget.RecyclerView>
 

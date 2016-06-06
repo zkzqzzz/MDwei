@@ -2,6 +2,8 @@ package com.example.administrator.mdwei.model.hotblog;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +45,7 @@ import rx.schedulers.Schedulers;
 public class HotBlogFragment extends BaseFragment {
 
     private PtrClassicFrameLayout prtLay;
-    private WListView wlistview;
+    private RecyclerView mRecyclerView;
 
     @Nullable
     @Override
@@ -56,7 +58,8 @@ public class HotBlogFragment extends BaseFragment {
     @Override
     public void initView(View view) {
         prtLay = (PtrClassicFrameLayout) view.findViewById(R.id.ptr_layout);
-        wlistview = (WListView) view.findViewById(R.id.list_view);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));//这里用线性显示 类似于listview
     }
 
     @Override
@@ -72,21 +75,7 @@ public class HotBlogFragment extends BaseFragment {
                 return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
             }
         });
-        //加载更多
-        wlistview.setOnLoadMore(new WListView.OnLoadMore() {
-            @Override
-            public void loadMore() {
-                //  loadData(false);
-            }
-        });
-        wlistview.setOnItemClickListener(new OnItemSingleClickListener() {
-            @Override
-            public void onItemSingleClick(AdapterView<?> parent, View view, int position, long id) {
-                if (wlistview.isLockIsLoadingData() && position == wlistview.getCount())
-                    return;
-                // itemClick(parent, view, position, id);
-            }
-        });
+
     }
 
     @Override

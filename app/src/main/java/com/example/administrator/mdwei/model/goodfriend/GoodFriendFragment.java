@@ -2,6 +2,7 @@ package com.example.administrator.mdwei.model.goodfriend;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,10 +13,12 @@ import android.widget.Toast;
 import com.example.administrator.mdwei.BaseFragment;
 import com.example.administrator.mdwei.R;
 import com.example.administrator.mdwei.adapter.GoodFriendAdapter;
+import com.example.administrator.mdwei.baseadapter.OnItemClickListener;
 import com.example.administrator.mdwei.bean.GoodFriend;
 import com.example.administrator.mdwei.service.GoodFriendService;
 import com.example.administrator.mdwei.util.AccessTokenKeeper;
 import com.example.administrator.mdwei.util.URLConstant;
+import com.example.administrator.mdwei.view.DividerItemDecoration;
 import com.example.administrator.pulltorefresh.PtrClassicFrameLayout;
 import com.example.administrator.pulltorefresh.PtrDefaultHandler;
 import com.example.administrator.pulltorefresh.PtrFrameLayout;
@@ -31,6 +34,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
+
 
 /**
  * Created by Administrator on 2016/6/1.
@@ -52,8 +56,10 @@ public class GoodFriendFragment extends BaseFragment {
     @Override
     public void initView(View view) {
         prtLay = (PtrClassicFrameLayout) view.findViewById(R.id.ptr_layout);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.list_view);
-        mAdapter=new GoodFriendAdapter(getActivity());
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));//这里用线性显示 类似于listview
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
+        mAdapter=new GoodFriendAdapter(getActivity(),R.layout.fragment_goodfriend_listview_item);
         mRecyclerView.setAdapter(mAdapter);
 
     }
@@ -71,7 +77,17 @@ public class GoodFriendFragment extends BaseFragment {
                 return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
             }
         });
-        //加载更多
+        mAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(ViewGroup parent, View view, Object o, int position) {
+                Toast.makeText(getActivity(),"--------",Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public boolean onItemLongClick(ViewGroup parent, View view, Object o, int position) {
+                return false;
+            }
+        });
 
     }
 
@@ -110,7 +126,7 @@ public class GoodFriendFragment extends BaseFragment {
 
                     @Override
                     public void onNext(GoodFriend movieEntity) {
-                        mAdapter.setData(movieEntity.getStatuses());
+                    mAdapter.setData(movieEntity.getStatuses());
                     }
                 });
 

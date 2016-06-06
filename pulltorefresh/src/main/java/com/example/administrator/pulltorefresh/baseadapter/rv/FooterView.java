@@ -4,7 +4,7 @@
  * @author Maxwin
  * @description XListView's footer
  */
-package com.example.administrator.mdwei.baseadapter;
+package com.example.administrator.pulltorefresh.baseadapter.rv;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.administrator.mdwei.R;
+import com.example.administrator.pulltorefresh.R;
 
 
 public class FooterView extends ViewGroup {

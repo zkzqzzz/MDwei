@@ -1,4 +1,4 @@
-package com.example.administrator.mdwei.baseadapter;
+package com.example.administrator.pulltorefresh.baseadapter.rv;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

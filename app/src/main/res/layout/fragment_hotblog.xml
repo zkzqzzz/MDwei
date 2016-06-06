@@ -8,12 +8,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.example.administrator.pulltorefresh.listview.WListView
-            style="@style/listView_style"
-            android:divider="@color/translucent"
-            android:dividerHeight="@dimen/common_space">
+        <android.support.v7.widget.RecyclerView
+            style="@style/recycler_view_style"
+    >
 
-        </com.example.administrator.pulltorefresh.listview.WListView>
+        </android.support.v7.widget.RecyclerView>
 
 
     </com.example.administrator.pulltorefresh.PtrClassicFrameLayout>
