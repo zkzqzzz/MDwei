@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.example.administrator.mdwei.BaseFragment;
 import com.example.administrator.mdwei.R;
 import com.example.administrator.mdwei.adapter.GoodFriendAdapter;
-import com.example.administrator.mdwei.baseadapter.OnItemClickListener;
 import com.example.administrator.mdwei.bean.GoodFriend;
 import com.example.administrator.mdwei.service.GoodFriendService;
 import com.example.administrator.mdwei.util.AccessTokenKeeper;
@@ -25,7 +24,9 @@ import com.example.administrator.pulltorefresh.PtrFrameLayout;
 import com.example.administrator.pulltorefresh.PtrHandler;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Retrofit;
@@ -43,7 +44,9 @@ public class GoodFriendFragment extends BaseFragment {
 
     private PtrClassicFrameLayout prtLay;
     private RecyclerView mRecyclerView;
-    private GoodFriendAdapter  mAdapter;
+    private GoodFriendAdapter mAdapter;
+    private GoodFriend goodFriend = new GoodFriend();
+
 
     @Nullable
     @Override
@@ -59,7 +62,7 @@ public class GoodFriendFragment extends BaseFragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));//这里用线性显示 类似于listview
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
-        mAdapter=new GoodFriendAdapter(getActivity(),R.layout.fragment_goodfriend_listview_item);
+        mAdapter = new GoodFriendAdapter(getActivity(), goodFriend.getStatuses());
         mRecyclerView.setAdapter(mAdapter);
 
     }
@@ -77,17 +80,7 @@ public class GoodFriendFragment extends BaseFragment {
                 return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
             }
         });
-        mAdapter.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(ViewGroup parent, View view, Object o, int position) {
-                Toast.makeText(getActivity(),"--------",Toast.LENGTH_LONG).show();
-            }
 
-            @Override
-            public boolean onItemLongClick(ViewGroup parent, View view, Object o, int position) {
-                return false;
-            }
-        });
 
     }
 
@@ -95,7 +88,7 @@ public class GoodFriendFragment extends BaseFragment {
     public void initData() {
         Oauth2AccessToken mAccessToken = AccessTokenKeeper.readAccessToken(getActivity());
         String token = mAccessToken.getToken();
-
+        Log.i("LOG", "token" + token);
         Map<String, Object> map = new HashMap<>();
         map.put("access_token", token);
 
@@ -116,7 +109,7 @@ public class GoodFriendFragment extends BaseFragment {
                 .subscribe(new Subscriber<GoodFriend>() {
                     @Override
                     public void onCompleted() {
-                        Toast.makeText(getActivity(), "***************", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "GoodFriendFragment", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -126,7 +119,8 @@ public class GoodFriendFragment extends BaseFragment {
 
                     @Override
                     public void onNext(GoodFriend movieEntity) {
-                    mAdapter.setData(movieEntity.getStatuses());
+                        goodFriend = movieEntity;
+                        mAdapter.setData(goodFriend.getStatuses());
                     }
                 });
 

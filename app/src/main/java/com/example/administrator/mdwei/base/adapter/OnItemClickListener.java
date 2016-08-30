@@ -1,4 +1,4 @@
-package com.example.administrator.mdwei.baseadapter;
+package com.example.administrator.mdwei.base.adapter;
 
 import android.view.View;
 import android.view.ViewGroup;

@@ -151,7 +151,7 @@ public class WBAuthActivity extends Activity {
             // 从 Bundle 中解析 Token
             mAccessToken = Oauth2AccessToken.parseAccessToken(values);
             //从这里获取用户输入的 电话号码信息
-          //  Bundle[{access_token=2.00M5tBSEQyZ8bC20a6982ed5YBvDSE, refresh_token=2.00M5tBSEQyZ8bC391005a8edYsPcHE, expires_in=157679999, uid=3930956624, remind_in=157679999}]
+            //  Bundle[{access_token=2.00M5tBSEQyZ8bC20a6982ed5YBvDSE, refresh_token=2.00M5tBSEQyZ8bC391005a8edYsPcHE, expires_in=157679999, uid=3930956624, remind_in=157679999}]
             if (mAccessToken.isSessionValid()) {
                 // 显示 Token
                 updateTokenView(false);

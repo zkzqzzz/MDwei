@@ -1,4 +1,4 @@
-package com.example.administrator.mdwei.baseadapter;
+package com.example.administrator.mdwei.base.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,9 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/6/6.
+ * Created by zhy on 16/4/9.
  */
-public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> implements AddData<T> {
+public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder>
+{
     protected Context mContext;
     protected int mLayoutId;
     protected List<T> mDatas;
@@ -25,11 +26,6 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
         this.mOnItemClickListener = onItemClickListener;
     }
 
-    public CommonAdapter(Context context, int layoutId)
-    {
-        this(context, layoutId, null);
-    }
-
     public CommonAdapter(Context context, int layoutId, List<T> datas)
     {
         mContext = context;
@@ -37,6 +33,23 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
         mLayoutId = layoutId;
         this.mDatas = datas == null ? new ArrayList<T>() : datas;
     }
+
+
+    public void setData(List<T> data, boolean isRefresh) {
+        if (isRefresh) {
+            this.mDatas.clear();
+        }
+        this.mDatas.addAll(data);
+        notifyDataSetChanged();
+    }
+
+
+    public void setData(List<T> data) {
+        int lastIndex = mDatas.size();
+        this.mDatas.addAll(data);
+        notifyItemRangeInserted(lastIndex, data.size());
+    }
+
 
     @Override
     public ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType)
@@ -101,24 +114,12 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
     @Override
     public int getItemCount()
     {
-        return mDatas.size();
-    }
-
-
-    @Override
-    public void setData(List<T> data, boolean isRefresh) {
-        if (isRefresh) {
-            this.mDatas.clear();
+        if(this.mDatas == null){
+            return 0;
         }
-        this.mDatas.addAll(data);
-        notifyDataSetChanged();
+        return this.mDatas.size();
+
     }
 
-    @Override
-    public void setData(List<T> data) {
-        int lastIndex = mDatas.size();
-        this.mDatas.addAll(data);
-        notifyItemRangeInserted(lastIndex, data.size());
-    }
 
 }
