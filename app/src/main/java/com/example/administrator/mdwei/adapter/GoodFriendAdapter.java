@@ -3,7 +3,10 @@ package com.example.administrator.mdwei.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.mdwei.R;
@@ -11,6 +14,7 @@ import com.example.administrator.mdwei.base.adapter.MultiItemCommonAdapter;
 import com.example.administrator.mdwei.base.adapter.MultiItemTypeSupport;
 import com.example.administrator.mdwei.base.adapter.ViewHolder;
 import com.example.administrator.mdwei.bean.GoodFriend;
+import com.example.administrator.mdwei.view.ImageViewViewGroup;
 
 import java.util.List;
 
@@ -35,20 +39,23 @@ public class GoodFriendAdapter extends MultiItemCommonAdapter<GoodFriend.Statuse
             @Override
             public int getItemViewType(int position, GoodFriend.StatusesBean statusesBean) {
 
+                //转发
                 if (statusesBean.getRetweeted_status() != null) {
-
                     return 0;
                 }
+                //原创
                 return 1;
             }
         });
 
 
-        this.mActivity=(Activity) context;
+        this.mActivity = (Activity) context;
     }
 
     @Override
     public void convert(ViewHolder holder, GoodFriend.StatusesBean statusesBean) {
+
+
         ImageView imageView = holder.getView(R.id.iv_good_profile_image_url);
         Glide.with(mActivity)
                 .load(statusesBean.getUser().getProfile_image_url())
@@ -57,7 +64,60 @@ public class GoodFriendAdapter extends MultiItemCommonAdapter<GoodFriend.Statuse
         holder.setText(R.id.tv_good_name, statusesBean.getUser().getName());
         holder.setText(R.id.tv_good_created_at, statusesBean.getUser().getCreated_at());
         holder.setText(R.id.tv_good_source, statusesBean.getSource());
-        holder.setText(R.id.tv_good_text, statusesBean.getText());
+
+
+        TextView originalText = holder.getView(R.id.tv_good_original_text);
+        ImageViewViewGroup originalViewGroup = holder.getView(R.id.vg_good_original);
+
+        TextView reprintText = holder.getView(R.id.tv_good_reprint_text);
+        ImageViewViewGroup reprintViewGroup = holder.getView(R.id.vg_good_reprint);
+
+        if (statusesBean.getText() != null) {
+            originalText.setVisibility(View.VISIBLE);
+            holder.setText(R.id.tv_good_original_text, statusesBean.getText());
+        } else {
+            originalText.setVisibility(View.GONE);
+        }
+
+        if (statusesBean.getPic_urls() != null) {
+
+            originalViewGroup.setVisibility(View.VISIBLE);
+            for (int i = 0; i < statusesBean.getPic_urls().size(); i++) {
+                ImageView view = new ImageView(mActivity);
+                view.setLayoutParams(new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                Glide.with(mActivity)
+                        .load(statusesBean.getUser().getProfile_image_url())
+                        .into(view);
+                originalViewGroup.addView(view);
+            }
+
+        } else {
+            originalViewGroup.setVisibility(View.GONE);
+        }
+
+        if (statusesBean.getRetweeted_status() != null && statusesBean.getRetweeted_status().getText() != null) {
+            reprintText.setVisibility(View.VISIBLE);
+            holder.setText(R.id.tv_good_reprint_text,  statusesBean.getRetweeted_status().getText());
+        } else {
+            reprintText.setVisibility(View.GONE);
+        }
+
+        if (statusesBean.getRetweeted_status() != null && statusesBean.getRetweeted_status().getPic_urls() != null) {
+
+            reprintViewGroup.setVisibility(View.VISIBLE);
+            for (int i = 0; i < statusesBean.getRetweeted_status().getPic_urls().size(); i++) {
+                ImageView view = new ImageView(mActivity);
+                view.setLayoutParams(new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                Glide.with(mActivity)
+                        .load(statusesBean.getUser().getProfile_image_url())
+                        .into(view);
+                originalViewGroup.addView(view);
+            }
+        } else {
+            reprintViewGroup.setVisibility(View.GONE);
+        }
+
+
     }
 }
 
