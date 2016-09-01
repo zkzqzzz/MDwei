@@ -155,7 +155,17 @@ public class GoodFriend {
         private String rid;
         private int userType;
         private List<PicUrlsBean> pic_urls;
+        public static class PicUrlsBean {
+            private String thumbnail_pic;
 
+            public String getThumbnail_pic() {
+                return thumbnail_pic;
+            }
+
+            public void setThumbnail_pic(String thumbnail_pic) {
+                this.thumbnail_pic = thumbnail_pic;
+            }
+        }
 
         private List<AnnotationsBean> annotations;
         private List<?> darwin_tags;
@@ -400,17 +410,6 @@ public class GoodFriend {
 
         public void setText_tag_tips(List<?> text_tag_tips) {
             this.text_tag_tips = text_tag_tips;
-        }
-        public static class PicUrlsBean {
-            private String thumbnail_pic;
-
-            public String getThumbnail_pic() {
-                return thumbnail_pic;
-            }
-
-            public void setThumbnail_pic(String thumbnail_pic) {
-                this.thumbnail_pic = thumbnail_pic;
-            }
         }
 
         /**

@@ -16,6 +16,7 @@ import com.example.administrator.mdwei.base.adapter.MultiItemCommonAdapter;
 import com.example.administrator.mdwei.base.adapter.MultiItemTypeSupport;
 import com.example.administrator.mdwei.base.adapter.ViewHolder;
 import com.example.administrator.mdwei.bean.GoodFriend;
+import com.example.administrator.mdwei.bean.Users;
 import com.example.administrator.mdwei.view.ImageViewViewGroup;
 
 import java.util.List;
@@ -83,16 +84,17 @@ public class GoodFriendAdapter extends MultiItemCommonAdapter<GoodFriend.Statuse
         }
 
         if (statusesBean.getPic_urls() != null && statusesBean.getPic_urls().size() != 0) {
-            if(originalViewGroup.getChildCount()>0){
+            if (originalViewGroup.getChildCount() > 0) {
                 originalViewGroup.removeAllViews();
             }
             originalViewGroup.setVisibility(View.VISIBLE);
             for (int i = 0; i < statusesBean.getPic_urls().size(); i++) {
-                ImageView view = new ImageView(mActivity);
-                view.setLayoutParams(new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                //       statusesBean.getPic_urls().get(i)
 
-                Glide.with(mActivity).load(R.mipmap.ic_launcher).diskCacheStrategy(DiskCacheStrategy.ALL).into(view);
+                ImageView view = new ImageView(mActivity);
+                view.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+                view.setLayoutParams(new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                Glide.with(mActivity).load(statusesBean.getPic_urls().get(i).getThumbnail_pic()).diskCacheStrategy(DiskCacheStrategy.ALL).into(view);
                 originalViewGroup.addView(view);
             }
         } else {
@@ -110,19 +112,17 @@ public class GoodFriendAdapter extends MultiItemCommonAdapter<GoodFriend.Statuse
         }
 
 
-
         if (statusesBean.getRetweeted_status() != null && statusesBean.getRetweeted_status().getPic_urls() != null && statusesBean.getRetweeted_status().getPic_urls().size() != 0) {
 
-           if(reprintViewGroup.getChildCount()>0){
-               reprintViewGroup.removeAllViews();
-           }
+            if (reprintViewGroup.getChildCount() > 0) {
+                reprintViewGroup.removeAllViews();
+            }
             reprintViewGroup.setVisibility(View.VISIBLE);
             for (int i = 0; i < statusesBean.getRetweeted_status().getPic_urls().size(); i++) {
                 ImageView view = new ImageView(mActivity);
+                view.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 view.setLayoutParams(new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                //   statusesBean.getRetweeted_status().getPic_urls().get(i)
-                Glide.with(mActivity).load(R.mipmap.image).diskCacheStrategy(DiskCacheStrategy.ALL).into(view);
-
+                Glide.with(mActivity).load(statusesBean.getRetweeted_status().getPic_urls().get(i).getThumbnail_pic()).diskCacheStrategy(DiskCacheStrategy.ALL).into(view);
                 reprintViewGroup.addView(view);
             }
         } else {
