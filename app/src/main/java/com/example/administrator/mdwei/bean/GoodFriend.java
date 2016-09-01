@@ -10,22 +10,6 @@ import java.util.List;
  */
 public class GoodFriend {
 
-
-    /**
-     * statuses : [{"created_at":"Fri Jun 03 18:04:53 +0800 2016","id":3982344136710368,"mid":"3982344136710368","idstr":"3982344136710368","text":"笑尿了@冬天里吃草的汪","source_allowclick":0,"source_type":1,"source":"<a href=\"http://app.weibo.com/t/feed/3G5oUM\" rel=\"nofollow\">iPhone 5s<\/a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[],"geo":null,"user":{"id":5480933228,"idstr":"5480933228","class":1,"screen_name":"逆光野蛮生长","name":"逆光野蛮生长","province":"31","city":"10","location":"上海 杨浦区","description":"iOS开发","url":"","profile_image_url":"http://tva3.sinaimg.cn/crop.0.1.640.640.50/005YVr6Qjw8f387wl3xszj30hs0hu74m.jpg","profile_url":"u/5480933228","domain":"","weihao":"","gender":"m","followers_count":10,"friends_count":49,"pagefriends_count":1,"statuses_count":16,"favourites_count":2,"created_at":"Fri Jan 16 22:42:32 +0800 2015","following":true,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","ptype":0,"allow_all_comment":true,"avatar_large":"http://tva3.sinaimg.cn/crop.0.1.640.640.180/005YVr6Qjw8f387wl3xszj30hs0hu74m.jpg","avatar_hd":"http://tva3.sinaimg.cn/crop.0.1.640.640.1024/005YVr6Qjw8f387wl3xszj30hs0hu74m.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":true,"online_status":0,"bi_followers_count":8,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"credit_score":80,"user_ability":0,"urank":7},"retweeted_status":{"created_at":"Fri Jun 03 09:13:26 +0800 2016","id":3982210387797260,"mid":"3982210387797260","idstr":"3982210387797260","text":"#涯妹推荐# 困扰我多年的问题，时间煮雨到底是什么意思？网友真是操碎了心哈哈哈哈哈","textLength":79,"source_allowclick":0,"source_type":2,"source":"<a href=\"http://weibo.com/\" rel=\"nofollow\">霍建华送的iPhone 6s Plus<\/a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmuoeplj30yi41aqlp.jpg"},{"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmwj2qoj30yi4e4kd5.jpg"},{"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmz8upij30yi54kki3.jpg"},{"thumbnail_pic":"http://ww4.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmsh1xtj30yi4ow4kv.jpg"},{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrn1icn4j30yi5sohcx.jpg"},{"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/006r3BkQjw1f4hrn44i8jj30yi5661k7.jpg"},{"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/006r3BkQjw1f4hrn6d8saj30yi4ueke5.jpg"},{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrn9t6fnj30yi6ur7wh.jpg"},{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrnboy70j30qo3v4asb.jpg"}],"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmuoeplj30yi41aqlp.jpg","bmiddle_pic":"http://ww1.sinaimg.cn/bmiddle/006r3BkQjw1f4hrmuoeplj30yi41aqlp.jpg","original_pic":"http://ww1.sinaimg.cn/large/006r3BkQjw1f4hrmuoeplj30yi41aqlp.jpg","geo":null,"user":{"id":5896616568,"idstr":"5896616568","class":1,"screen_name":"天涯迷妹的跟贴日常","name":"天涯迷妹的跟贴日常","province":"100","city":"1000","location":"其他","description":"你好我是涯妹，专治你的便秘和无聊，欢迎投稿","url":"","profile_image_url":"http://tva2.sinaimg.cn/crop.0.0.1242.1242.50/006r3BkQjw8f4b1dksrcmj30yi0yi0uf.jpg","cover_image_phone":"http://ww1.sinaimg.cn/crop.0.0.640.640.640/006r3BkQjw1f4b2492atyj30yi0yj7bc.jpg;http://ww2.sinaimg.cn/crop.0.0.640.640.640/006r3BkQjw1f4b1spgenwj30yi0yi74z.jpg","profile_url":"u/5896616568","domain":"","weihao":"","gender":"f","followers_count":51911,"friends_count":38,"pagefriends_count":0,"statuses_count":27,"favourites_count":5,"created_at":"Tue Apr 12 17:52:21 +0800 2016","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","ptype":0,"allow_all_comment":true,"avatar_large":"http://tva2.sinaimg.cn/crop.0.0.1242.1242.180/006r3BkQjw8f4b1dksrcmj30yi0yi0uf.jpg","avatar_hd":"http://tva2.sinaimg.cn/crop.0.0.1242.1242.1024/006r3BkQjw8f4b1dksrcmj30yi0yi0uf.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":2,"lang":"zh-cn","star":0,"mbtype":11,"mbrank":1,"block_word":0,"block_app":1,"credit_score":80,"user_ability":0,"cardid":"star_086","urank":6},"annotations":[{"client_mblogid":"iPhone-0F0B70C0-AD00-415C-895C-F0EE5B334A88"},{"mapi_request":true}],"picStatus":"0:1,1:1,2:1,3:1,4:1,5:1,6:1,7:1,8:1","reposts_count":17473,"comments_count":7859,"attitudes_count":6907,"isLongText":false,"mlevel":0,"visible":{"type":0,"list_id":0},"biz_feature":4294967300,"page_type":32,"darwin_tags":[],"hot_weibo_tags":[],"text_tag_tips":[],"userType":0,"extend_info":{"weibo_camera":{"c":["7798784_7143425_6127618_6684675_5406724_6062085_6488070_4587527_6291464"]}},"cardid":"star_086"},"annotations":[{"mapi_request":true}],"reposts_count":0,"comments_count":0,"attitudes_count":0,"isLongText":false,"mlevel":0,"visible":{"type":0,"list_id":0},"biz_feature":0,"darwin_tags":[],"hot_weibo_tags":[],"text_tag_tips":[],"rid":"13_0_1_2666866655826229032","userType":0},{"created_at":"Fri Jun 03 18:00:24 +0800 2016","id":3982343008305430,"mid":"3982343008305430","idstr":"3982343008305430","text":"听这样的老师讲课才过瘾","source_allowclick":0,"source_type":1,"source":"<a href=\"http://app.weibo.com/t/feed/3jskmg\" rel=\"nofollow\">iPhone 6s<\/a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[],"geo":null,"user":{"id":3637200881,"idstr":"3637200881","class":1,"screen_name":"周周QSO","name":"周周QSO","province":"100","city":"1000","location":"其他","description":"","url":"","profile_image_url":"http://tva1.sinaimg.cn/crop.0.0.720.720.50/d8cb47f1jw8egu8pnbkqsj20k00k0mxx.jpg","profile_url":"u/3637200881","domain":"","weihao":"","gender":"f","followers_count":57,"friends_count":101,"pagefriends_count":0,"statuses_count":153,"favourites_count":0,"created_at":"Mon Aug 12 23:08:08 +0800 2013","following":true,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","ptype":0,"allow_all_comment":true,"avatar_large":"http://tva1.sinaimg.cn/crop.0.0.720.720.180/d8cb47f1jw8egu8pnbkqsj20k00k0mxx.jpg","avatar_hd":"http://tva1.sinaimg.cn/crop.0.0.720.720.1024/d8cb47f1jw8egu8pnbkqsj20k00k0mxx.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":true,"online_status":0,"bi_followers_count":13,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"credit_score":80,"user_ability":0,"urank":14},"retweeted_status":{"created_at":"Fri Jun 03 12:00:03 +0800 2016","id":3982252323156153,"mid":"3982252323156153","idstr":"3982252323156153","text":"#乐享时光# 一个老师用7分钟的单口相声，全面解读了34所985名校。 [笑cry] 心疼哈工程。你的学校躺枪了吗？http://t.cn/R5bKydE","textLength":119,"source_allowclick":0,"source_type":1,"source":"<a href=\"http://weibo.com/\" rel=\"nofollow\">微博 weibo.com<\/a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[],"geo":null,"user":{"id":1642512402,"idstr":"1642512402","class":1,"screen_name":"中国新闻周刊","name":"中国新闻周刊","province":"11","city":"2","location":"北京 西城区","description":"中国新闻周刊官方微博。定位于信息管家、时事顾问、意见领袖。","url":"http://www.inewsweek.cn","profile_image_url":"http://tva4.sinaimg.cn/crop.0.0.179.179.50/61e6c012gw1ev930c1e5sj2050050t8w.jpg","cover_image":"http://ww3.sinaimg.cn/crop.0.0.980.300/61e6c012tw1egjf80jx3aj20r808c75w.jpg","cover_image_phone":"http://ww2.sinaimg.cn/crop.0.0.640.640.640/a1d3feabjw1ecat8op0e1j20hs0hswgu.jpg","profile_url":"chinanewsweek","domain":"chinanewsweek","weihao":"","gender":"m","followers_count":38238925,"friends_count":2089,"pagefriends_count":64,"statuses_count":83284,"favourites_count":916,"created_at":"Wed Sep 02 09:44:48 +0800 2009","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":true,"verified_type":3,"remark":"","ptype":0,"allow_all_comment":true,"avatar_large":"http://tva4.sinaimg.cn/crop.0.0.179.179.180/61e6c012gw1ev930c1e5sj2050050t8w.jpg","avatar_hd":"http://tva4.sinaimg.cn/crop.0.0.179.179.1024/61e6c012gw1ev930c1e5sj2050050t8w.jpg","verified_reason":"中国新闻周刊官方微博","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","verified_state":0,"verified_level":3,"verified_type_ext":0,"verified_reason_modified":"","verified_contact_name":"","verified_contact_email":"","verified_contact_mobile":"","follow_me":false,"online_status":0,"bi_followers_count":1299,"lang":"zh-cn","star":0,"mbtype":12,"mbrank":4,"block_word":0,"block_app":1,"credit_score":80,"user_ability":4,"urank":36},"reposts_count":3592,"comments_count":615,"attitudes_count":2653,"isLongText":false,"mlevel":0,"visible":{"type":0,"list_id":0},"biz_ids":[230442],"biz_feature":0,"page_type":32,"darwin_tags":[],"hot_weibo_tags":[],"text_tag_tips":[],"userType":0},"annotations":[{"mapi_request":true}],"reposts_count":0,"comments_count":0,"attitudes_count":0,"isLongText":false,"mlevel":0,"visible":{"type":0,"list_id":0},"biz_feature":0,"darwin_tags":[],"hot_weibo_tags":[],"text_tag_tips":[],"rid":"14_0_1_2666866655826229032","userType":0}]
-     * advertises : []
-     * ad : []
-     * hasvisible : false
-     * previous_cursor : 0
-     * next_cursor : 3982082437190775
-     * total_number : 150
-     * interval : 2000
-     * uve_blank : -1
-     * since_id : 3982793191483458
-     * max_id : 3982082437190775
-     * has_unread : 0
-     */
-
     private boolean hasvisible;
     private int previous_cursor;
     private long next_cursor;
@@ -35,38 +19,6 @@ public class GoodFriend {
     private long since_id;
     private long max_id;
     private int has_unread;
-    /**
-     * created_at : Fri Jun 03 18:04:53 +0800 2016
-     * id : 3982344136710368
-     * mid : 3982344136710368
-     * idstr : 3982344136710368
-     * text : 笑尿了@冬天里吃草的汪
-     * source_allowclick : 0
-     * source_type : 1
-     * source : <a href="http://app.weibo.com/t/feed/3G5oUM" rel="nofollow">iPhone 5s</a>
-     * favorited : false
-     * truncated : false
-     * in_reply_to_status_id :
-     * in_reply_to_user_id :
-     * in_reply_to_screen_name :
-     * pic_urls : []
-     * geo : null
-     * user : {"id":5480933228,"idstr":"5480933228","class":1,"screen_name":"逆光野蛮生长","name":"逆光野蛮生长","province":"31","city":"10","location":"上海 杨浦区","description":"iOS开发","url":"","profile_image_url":"http://tva3.sinaimg.cn/crop.0.1.640.640.50/005YVr6Qjw8f387wl3xszj30hs0hu74m.jpg","profile_url":"u/5480933228","domain":"","weihao":"","gender":"m","followers_count":10,"friends_count":49,"pagefriends_count":1,"statuses_count":16,"favourites_count":2,"created_at":"Fri Jan 16 22:42:32 +0800 2015","following":true,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","ptype":0,"allow_all_comment":true,"avatar_large":"http://tva3.sinaimg.cn/crop.0.1.640.640.180/005YVr6Qjw8f387wl3xszj30hs0hu74m.jpg","avatar_hd":"http://tva3.sinaimg.cn/crop.0.1.640.640.1024/005YVr6Qjw8f387wl3xszj30hs0hu74m.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":true,"online_status":0,"bi_followers_count":8,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"credit_score":80,"user_ability":0,"urank":7}
-     * retweeted_status : {"created_at":"Fri Jun 03 09:13:26 +0800 2016","id":3982210387797260,"mid":"3982210387797260","idstr":"3982210387797260","text":"#涯妹推荐# 困扰我多年的问题，时间煮雨到底是什么意思？网友真是操碎了心哈哈哈哈哈","textLength":79,"source_allowclick":0,"source_type":2,"source":"<a href=\"http://weibo.com/\" rel=\"nofollow\">霍建华送的iPhone 6s Plus<\/a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmuoeplj30yi41aqlp.jpg"},{"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmwj2qoj30yi4e4kd5.jpg"},{"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmz8upij30yi54kki3.jpg"},{"thumbnail_pic":"http://ww4.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmsh1xtj30yi4ow4kv.jpg"},{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrn1icn4j30yi5sohcx.jpg"},{"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/006r3BkQjw1f4hrn44i8jj30yi5661k7.jpg"},{"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/006r3BkQjw1f4hrn6d8saj30yi4ueke5.jpg"},{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrn9t6fnj30yi6ur7wh.jpg"},{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrnboy70j30qo3v4asb.jpg"}],"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmuoeplj30yi41aqlp.jpg","bmiddle_pic":"http://ww1.sinaimg.cn/bmiddle/006r3BkQjw1f4hrmuoeplj30yi41aqlp.jpg","original_pic":"http://ww1.sinaimg.cn/large/006r3BkQjw1f4hrmuoeplj30yi41aqlp.jpg","geo":null,"user":{"id":5896616568,"idstr":"5896616568","class":1,"screen_name":"天涯迷妹的跟贴日常","name":"天涯迷妹的跟贴日常","province":"100","city":"1000","location":"其他","description":"你好我是涯妹，专治你的便秘和无聊，欢迎投稿","url":"","profile_image_url":"http://tva2.sinaimg.cn/crop.0.0.1242.1242.50/006r3BkQjw8f4b1dksrcmj30yi0yi0uf.jpg","cover_image_phone":"http://ww1.sinaimg.cn/crop.0.0.640.640.640/006r3BkQjw1f4b2492atyj30yi0yj7bc.jpg;http://ww2.sinaimg.cn/crop.0.0.640.640.640/006r3BkQjw1f4b1spgenwj30yi0yi74z.jpg","profile_url":"u/5896616568","domain":"","weihao":"","gender":"f","followers_count":51911,"friends_count":38,"pagefriends_count":0,"statuses_count":27,"favourites_count":5,"created_at":"Tue Apr 12 17:52:21 +0800 2016","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","ptype":0,"allow_all_comment":true,"avatar_large":"http://tva2.sinaimg.cn/crop.0.0.1242.1242.180/006r3BkQjw8f4b1dksrcmj30yi0yi0uf.jpg","avatar_hd":"http://tva2.sinaimg.cn/crop.0.0.1242.1242.1024/006r3BkQjw8f4b1dksrcmj30yi0yi0uf.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":2,"lang":"zh-cn","star":0,"mbtype":11,"mbrank":1,"block_word":0,"block_app":1,"credit_score":80,"user_ability":0,"cardid":"star_086","urank":6},"annotations":[{"client_mblogid":"iPhone-0F0B70C0-AD00-415C-895C-F0EE5B334A88"},{"mapi_request":true}],"picStatus":"0:1,1:1,2:1,3:1,4:1,5:1,6:1,7:1,8:1","reposts_count":17473,"comments_count":7859,"attitudes_count":6907,"isLongText":false,"mlevel":0,"visible":{"type":0,"list_id":0},"biz_feature":4294967300,"page_type":32,"darwin_tags":[],"hot_weibo_tags":[],"text_tag_tips":[],"userType":0,"extend_info":{"weibo_camera":{"c":["7798784_7143425_6127618_6684675_5406724_6062085_6488070_4587527_6291464"]}},"cardid":"star_086"}
-     * annotations : [{"mapi_request":true}]
-     * reposts_count : 0
-     * comments_count : 0
-     * attitudes_count : 0
-     * isLongText : false
-     * mlevel : 0
-     * visible : {"type":0,"list_id":0}
-     * biz_feature : 0
-     * darwin_tags : []
-     * hot_weibo_tags : []
-     * text_tag_tips : []
-     * rid : 13_0_1_2666866655826229032
-     * userType : 0
-     */
 
     private List<StatusesBean> statuses;
     private List<?> advertises;
@@ -168,6 +120,9 @@ public class GoodFriend {
         this.ad = ad;
     }
 
+    /**
+     * 1、原创微博信息
+     */
     public static class StatusesBean {
         private String created_at;
         private long id;
@@ -183,96 +138,9 @@ public class GoodFriend {
         private String in_reply_to_user_id;
         private String in_reply_to_screen_name;
         private Object geo;
-        /**
-         * id : 5480933228
-         * idstr : 5480933228
-         * class : 1
-         * screen_name : 逆光野蛮生长
-         * name : 逆光野蛮生长
-         * province : 31
-         * city : 10
-         * location : 上海 杨浦区
-         * description : iOS开发
-         * url :
-         * profile_image_url : http://tva3.sinaimg.cn/crop.0.1.640.640.50/005YVr6Qjw8f387wl3xszj30hs0hu74m.jpg
-         * profile_url : u/5480933228
-         * domain :
-         * weihao :
-         * gender : m
-         * followers_count : 10
-         * friends_count : 49
-         * pagefriends_count : 1
-         * statuses_count : 16
-         * favourites_count : 2
-         * created_at : Fri Jan 16 22:42:32 +0800 2015
-         * following : true
-         * allow_all_act_msg : false
-         * geo_enabled : true
-         * verified : false
-         * verified_type : -1
-         * remark :
-         * ptype : 0
-         * allow_all_comment : true
-         * avatar_large : http://tva3.sinaimg.cn/crop.0.1.640.640.180/005YVr6Qjw8f387wl3xszj30hs0hu74m.jpg
-         * avatar_hd : http://tva3.sinaimg.cn/crop.0.1.640.640.1024/005YVr6Qjw8f387wl3xszj30hs0hu74m.jpg
-         * verified_reason :
-         * verified_trade :
-         * verified_reason_url :
-         * verified_source :
-         * verified_source_url :
-         * follow_me : true
-         * online_status : 0
-         * bi_followers_count : 8
-         * lang : zh-cn
-         * star : 0
-         * mbtype : 0
-         * mbrank : 0
-         * block_word : 0
-         * block_app : 0
-         * credit_score : 80
-         * user_ability : 0
-         * urank : 7
-         */
 
         private UserBean user;
-        /**
-         * created_at : Fri Jun 03 09:13:26 +0800 2016
-         * id : 3982210387797260
-         * mid : 3982210387797260
-         * idstr : 3982210387797260
-         * text : #涯妹推荐# 困扰我多年的问题，时间煮雨到底是什么意思？网友真是操碎了心哈哈哈哈哈
-         * textLength : 79
-         * source_allowclick : 0
-         * source_type : 2
-         * source : <a href="http://weibo.com/" rel="nofollow">霍建华送的iPhone 6s Plus</a>
-         * favorited : false
-         * truncated : false
-         * in_reply_to_status_id :
-         * in_reply_to_user_id :
-         * in_reply_to_screen_name :
-         * pic_urls : [{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmuoeplj30yi41aqlp.jpg"},{"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmwj2qoj30yi4e4kd5.jpg"},{"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmz8upij30yi54kki3.jpg"},{"thumbnail_pic":"http://ww4.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmsh1xtj30yi4ow4kv.jpg"},{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrn1icn4j30yi5sohcx.jpg"},{"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/006r3BkQjw1f4hrn44i8jj30yi5661k7.jpg"},{"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/006r3BkQjw1f4hrn6d8saj30yi4ueke5.jpg"},{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrn9t6fnj30yi6ur7wh.jpg"},{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrnboy70j30qo3v4asb.jpg"}]
-         * thumbnail_pic : http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmuoeplj30yi41aqlp.jpg
-         * bmiddle_pic : http://ww1.sinaimg.cn/bmiddle/006r3BkQjw1f4hrmuoeplj30yi41aqlp.jpg
-         * original_pic : http://ww1.sinaimg.cn/large/006r3BkQjw1f4hrmuoeplj30yi41aqlp.jpg
-         * geo : null
-         * user : {"id":5896616568,"idstr":"5896616568","class":1,"screen_name":"天涯迷妹的跟贴日常","name":"天涯迷妹的跟贴日常","province":"100","city":"1000","location":"其他","description":"你好我是涯妹，专治你的便秘和无聊，欢迎投稿","url":"","profile_image_url":"http://tva2.sinaimg.cn/crop.0.0.1242.1242.50/006r3BkQjw8f4b1dksrcmj30yi0yi0uf.jpg","cover_image_phone":"http://ww1.sinaimg.cn/crop.0.0.640.640.640/006r3BkQjw1f4b2492atyj30yi0yj7bc.jpg;http://ww2.sinaimg.cn/crop.0.0.640.640.640/006r3BkQjw1f4b1spgenwj30yi0yi74z.jpg","profile_url":"u/5896616568","domain":"","weihao":"","gender":"f","followers_count":51911,"friends_count":38,"pagefriends_count":0,"statuses_count":27,"favourites_count":5,"created_at":"Tue Apr 12 17:52:21 +0800 2016","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","ptype":0,"allow_all_comment":true,"avatar_large":"http://tva2.sinaimg.cn/crop.0.0.1242.1242.180/006r3BkQjw8f4b1dksrcmj30yi0yi0uf.jpg","avatar_hd":"http://tva2.sinaimg.cn/crop.0.0.1242.1242.1024/006r3BkQjw8f4b1dksrcmj30yi0yi0uf.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":2,"lang":"zh-cn","star":0,"mbtype":11,"mbrank":1,"block_word":0,"block_app":1,"credit_score":80,"user_ability":0,"cardid":"star_086","urank":6}
-         * annotations : [{"client_mblogid":"iPhone-0F0B70C0-AD00-415C-895C-F0EE5B334A88"},{"mapi_request":true}]
-         * picStatus : 0:1,1:1,2:1,3:1,4:1,5:1,6:1,7:1,8:1
-         * reposts_count : 17473
-         * comments_count : 7859
-         * attitudes_count : 6907
-         * isLongText : false
-         * mlevel : 0
-         * visible : {"type":0,"list_id":0}
-         * biz_feature : 4294967300
-         * page_type : 32
-         * darwin_tags : []
-         * hot_weibo_tags : []
-         * text_tag_tips : []
-         * userType : 0
-         * extend_info : {"weibo_camera":{"c":["7798784_7143425_6127618_6684675_5406724_6062085_6488070_4587527_6291464"]}}
-         * cardid : star_086
-         */
+
 
         private RetweetedStatusBean retweeted_status;
         private int reposts_count;
@@ -280,19 +148,14 @@ public class GoodFriend {
         private int attitudes_count;
         private boolean isLongText;
         private int mlevel;
-        /**
-         * type : 0
-         * list_id : 0
-         */
+
 
         private VisibleBean visible;
         private long biz_feature;
         private String rid;
         private int userType;
-        private List<?> pic_urls;
-        /**
-         * mapi_request : true
-         */
+        private List<PicUrlsBean> pic_urls;
+
 
         private List<AnnotationsBean> annotations;
         private List<?> darwin_tags;
@@ -499,11 +362,11 @@ public class GoodFriend {
             this.userType = userType;
         }
 
-        public List<?> getPic_urls() {
+        public List<PicUrlsBean> getPic_urls() {
             return pic_urls;
         }
 
-        public void setPic_urls(List<?> pic_urls) {
+        public void setPic_urls(List<PicUrlsBean> pic_urls) {
             this.pic_urls = pic_urls;
         }
 
@@ -538,7 +401,21 @@ public class GoodFriend {
         public void setText_tag_tips(List<?> text_tag_tips) {
             this.text_tag_tips = text_tag_tips;
         }
+        public static class PicUrlsBean {
+            private String thumbnail_pic;
 
+            public String getThumbnail_pic() {
+                return thumbnail_pic;
+            }
+
+            public void setThumbnail_pic(String thumbnail_pic) {
+                this.thumbnail_pic = thumbnail_pic;
+            }
+        }
+
+        /**
+         * 2、博主资料
+         */
         public static class UserBean {
             private long id;
             private String idstr;
@@ -975,6 +852,9 @@ public class GoodFriend {
             }
         }
 
+        /**
+         * 3、转发微博信息
+         */
         public static class RetweetedStatusBean {
             private String created_at;
             private long id;
@@ -994,58 +874,7 @@ public class GoodFriend {
             private String bmiddle_pic;
             private String original_pic;
             private Object geo;
-            /**
-             * id : 5896616568
-             * idstr : 5896616568
-             * class : 1
-             * screen_name : 天涯迷妹的跟贴日常
-             * name : 天涯迷妹的跟贴日常
-             * province : 100
-             * city : 1000
-             * location : 其他
-             * description : 你好我是涯妹，专治你的便秘和无聊，欢迎投稿
-             * url :
-             * profile_image_url : http://tva2.sinaimg.cn/crop.0.0.1242.1242.50/006r3BkQjw8f4b1dksrcmj30yi0yi0uf.jpg
-             * cover_image_phone : http://ww1.sinaimg.cn/crop.0.0.640.640.640/006r3BkQjw1f4b2492atyj30yi0yj7bc.jpg;http://ww2.sinaimg.cn/crop.0.0.640.640.640/006r3BkQjw1f4b1spgenwj30yi0yi74z.jpg
-             * profile_url : u/5896616568
-             * domain :
-             * weihao :
-             * gender : f
-             * followers_count : 51911
-             * friends_count : 38
-             * pagefriends_count : 0
-             * statuses_count : 27
-             * favourites_count : 5
-             * created_at : Tue Apr 12 17:52:21 +0800 2016
-             * following : false
-             * allow_all_act_msg : false
-             * geo_enabled : true
-             * verified : false
-             * verified_type : -1
-             * remark :
-             * ptype : 0
-             * allow_all_comment : true
-             * avatar_large : http://tva2.sinaimg.cn/crop.0.0.1242.1242.180/006r3BkQjw8f4b1dksrcmj30yi0yi0uf.jpg
-             * avatar_hd : http://tva2.sinaimg.cn/crop.0.0.1242.1242.1024/006r3BkQjw8f4b1dksrcmj30yi0yi0uf.jpg
-             * verified_reason :
-             * verified_trade :
-             * verified_reason_url :
-             * verified_source :
-             * verified_source_url :
-             * follow_me : false
-             * online_status : 0
-             * bi_followers_count : 2
-             * lang : zh-cn
-             * star : 0
-             * mbtype : 11
-             * mbrank : 1
-             * block_word : 0
-             * block_app : 1
-             * credit_score : 80
-             * user_ability : 0
-             * cardid : star_086
-             * urank : 6
-             */
+
 
             private UserBean user;
             private String picStatus;
@@ -1054,29 +883,19 @@ public class GoodFriend {
             private int attitudes_count;
             private boolean isLongText;
             private int mlevel;
-            /**
-             * type : 0
-             * list_id : 0
-             */
+
 
             private VisibleBean visible;
             private long biz_feature;
             private int page_type;
             private int userType;
-            /**
-             * weibo_camera : {"c":["7798784_7143425_6127618_6684675_5406724_6062085_6488070_4587527_6291464"]}
-             */
+
 
             private ExtendInfoBean extend_info;
             private String cardid;
-            /**
-             * thumbnail_pic : http://ww1.sinaimg.cn/thumbnail/006r3BkQjw1f4hrmuoeplj30yi41aqlp.jpg
-             */
+
 
             private List<PicUrlsBean> pic_urls;
-            /**
-             * client_mblogid : iPhone-0F0B70C0-AD00-415C-895C-F0EE5B334A88
-             */
 
             private List<AnnotationsBean> annotations;
             private List<?> darwin_tags;
@@ -1371,6 +1190,9 @@ public class GoodFriend {
                 this.text_tag_tips = text_tag_tips;
             }
 
+            /**
+             * 5、转发微博博主信息
+             */
             public static class UserBean {
                 private long id;
                 private String idstr;

@@ -3,12 +3,14 @@ package com.example.administrator.mdwei.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.administrator.mdwei.R;
 import com.example.administrator.mdwei.base.adapter.MultiItemCommonAdapter;
 import com.example.administrator.mdwei.base.adapter.MultiItemTypeSupport;
@@ -44,7 +46,7 @@ public class GoodFriendAdapter extends MultiItemCommonAdapter<GoodFriend.Statuse
                     return 0;
                 }
                 //原创
-                return 1;
+                return 0;
             }
         });
 
@@ -76,44 +78,55 @@ public class GoodFriendAdapter extends MultiItemCommonAdapter<GoodFriend.Statuse
             originalText.setVisibility(View.VISIBLE);
             holder.setText(R.id.tv_good_original_text, statusesBean.getText());
         } else {
+            holder.setText(R.id.tv_good_original_text, "");
             originalText.setVisibility(View.GONE);
         }
 
-        if (statusesBean.getPic_urls() != null) {
-
+        if (statusesBean.getPic_urls() != null && statusesBean.getPic_urls().size() != 0) {
+            if(originalViewGroup.getChildCount()>0){
+                originalViewGroup.removeAllViews();
+            }
             originalViewGroup.setVisibility(View.VISIBLE);
             for (int i = 0; i < statusesBean.getPic_urls().size(); i++) {
                 ImageView view = new ImageView(mActivity);
                 view.setLayoutParams(new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                Glide.with(mActivity)
-                        .load(statusesBean.getUser().getProfile_image_url())
-                        .into(view);
+                //       statusesBean.getPic_urls().get(i)
+
+                Glide.with(mActivity).load(R.mipmap.ic_launcher).diskCacheStrategy(DiskCacheStrategy.ALL).into(view);
                 originalViewGroup.addView(view);
             }
-
         } else {
+            originalViewGroup.removeAllViews();
             originalViewGroup.setVisibility(View.GONE);
         }
 
+
         if (statusesBean.getRetweeted_status() != null && statusesBean.getRetweeted_status().getText() != null) {
             reprintText.setVisibility(View.VISIBLE);
-            holder.setText(R.id.tv_good_reprint_text,  statusesBean.getRetweeted_status().getText());
+            holder.setText(R.id.tv_good_reprint_text, statusesBean.getRetweeted_status().getText());
         } else {
+            holder.setText(R.id.tv_good_reprint_text, "");
             reprintText.setVisibility(View.GONE);
         }
 
-        if (statusesBean.getRetweeted_status() != null && statusesBean.getRetweeted_status().getPic_urls() != null) {
 
+
+        if (statusesBean.getRetweeted_status() != null && statusesBean.getRetweeted_status().getPic_urls() != null && statusesBean.getRetweeted_status().getPic_urls().size() != 0) {
+
+           if(reprintViewGroup.getChildCount()>0){
+               reprintViewGroup.removeAllViews();
+           }
             reprintViewGroup.setVisibility(View.VISIBLE);
             for (int i = 0; i < statusesBean.getRetweeted_status().getPic_urls().size(); i++) {
                 ImageView view = new ImageView(mActivity);
                 view.setLayoutParams(new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                Glide.with(mActivity)
-                        .load(statusesBean.getUser().getProfile_image_url())
-                        .into(view);
-                originalViewGroup.addView(view);
+                //   statusesBean.getRetweeted_status().getPic_urls().get(i)
+                Glide.with(mActivity).load(R.mipmap.image).diskCacheStrategy(DiskCacheStrategy.ALL).into(view);
+
+                reprintViewGroup.addView(view);
             }
         } else {
+            reprintViewGroup.removeAllViews();
             reprintViewGroup.setVisibility(View.GONE);
         }
 

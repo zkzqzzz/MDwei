@@ -62,7 +62,7 @@
             android:text="4155555555555555555"
             android:visibility="gone" />
 
-        <com.example.administrator.mdwei.view.ImageViewViewGroup
+               <com.example.administrator.mdwei.view.ImageViewViewGroup
             android:id="@+id/vg_good_original"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
