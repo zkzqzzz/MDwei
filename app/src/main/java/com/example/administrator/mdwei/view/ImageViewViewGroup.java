@@ -6,6 +6,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.administrator.mdwei.util.DensityUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,12 +19,23 @@ public class ImageViewViewGroup extends ViewGroup {
     private DisplayMetrics dm;
     private int mWidth;
     private int mHeight;
+    private Context mContext;
+
     public ImageViewViewGroup(Context context) {
         super(context);
     }
 
+    private int fatherViewMargin;
+
+    private int childViewMargin;
+
+    private int oneViewWidth;
+
+    private int fourViewWidth;
+
     public ImageViewViewGroup(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.mContext = context;
         init();
     }
 
@@ -34,8 +47,12 @@ public class ImageViewViewGroup extends ViewGroup {
         dm = getResources().getDisplayMetrics();
         mWidth = dm.widthPixels;
         mHeight = dm.heightPixels;
-    }
+        fatherViewMargin = DensityUtil.dip2px(mContext, 6f);
+        childViewMargin = DensityUtil.dip2px(mContext, 8f);
+        oneViewWidth = mWidth - fatherViewMargin * 2 - childViewMargin * 2;
+        fourViewWidth = (mWidth - fatherViewMargin * 2 - childViewMargin * 4)/3;
 
+    }
 
 
     @Override
@@ -52,15 +69,16 @@ public class ImageViewViewGroup extends ViewGroup {
         int height = 0;
 
         if (cCount == 1) {
-            width = mWidth / 2;
-            height = (int) (width * 1.5);
+            width = oneViewWidth / 2;
+            height = (int) (width * 1.3);
         } else if (cCount == 4) {
-            width = mWidth / 3 * 2;
-            height = width;
+            width = fourViewWidth * 2 + fatherViewMargin * 2;
+            height = fourViewWidth * 2 + fatherViewMargin * 3;
         } else {
 
             /**
              * 记录每一行的宽度，width不断取最大宽度
+             *
              */
             int lineWidth = 0;
             /**
@@ -71,9 +89,9 @@ public class ImageViewViewGroup extends ViewGroup {
             // 遍历每个子元素
             for (int i = 0; i < cCount; i++) {
                 // 当前子空间实际占据的宽度
-                int childWidth = mWidth / 3;
+                int childWidth = fourViewWidth;
                 // 当前子空间实际占据的高度
-                int childHeight = mWidth / 3;
+                int childHeight = fourViewWidth;
                 /**
                  * 如果加入当前child，则超出最大宽度，则的到目前最大宽度给width，类加height 然后开启新行
                  */
@@ -83,11 +101,11 @@ public class ImageViewViewGroup extends ViewGroup {
                     // 叠加当前高度，
                     height += lineHeight;
                     // 开启记录下一行的高度
-                    lineHeight = childHeight;
+                    lineHeight = childHeight+childViewMargin;
                 } else
                 // 否则累加值lineWidth,lineHeight取最大高度
                 {
-                    lineWidth += childWidth;
+                    lineWidth += childWidth+childViewMargin;
                     lineHeight = Math.max(lineHeight, childHeight);
                 }
                 // 如果是最后一个，则将当前记录的最大宽度和当前lineWidth做比较
@@ -124,22 +142,22 @@ public class ImageViewViewGroup extends ViewGroup {
 
         if (cCount == 1) {
             View child = getChildAt(0);
-            child.layout(0, 0, mWidth / 2, (int) (mWidth / 2 * 1.5));
+            child.layout(DensityUtil.dip2px(mContext, 8f), 0, oneViewWidth / 2, (int) (oneViewWidth / 2 * 1.3));
         } else {
             int viewGroupWidth;
             if (cCount == 4) {
-                viewGroupWidth = mWidth / 3 * 2;
+                viewGroupWidth = fourViewWidth * 2;
             } else {
-                viewGroupWidth = mWidth;
+                viewGroupWidth = fourViewWidth * 3;
             }
 
             for (int i = 0; i < cCount; i++) {
                 View child = getChildAt(i);
                 MarginLayoutParams lp = (MarginLayoutParams) child
                         .getLayoutParams();
-                int childWidth = mWidth / 3;
+                int childWidth = fourViewWidth;
 
-                int childHeight = mWidth / 3;
+                int childHeight = fourViewWidth;
 
                 // 如果已经需要换行
                 if (childWidth + lp.leftMargin + lp.rightMargin + lineWidth > viewGroupWidth) {
@@ -154,6 +172,7 @@ public class ImageViewViewGroup extends ViewGroup {
                  * 如果不需要换行，则累加
                  */
                 lineWidth += childWidth + lp.leftMargin + lp.rightMargin;
+
                 lineHeight = Math.max(lineHeight, childHeight + lp.topMargin
                         + lp.bottomMargin);
                 lineViews.add(child);
@@ -183,19 +202,19 @@ public class ImageViewViewGroup extends ViewGroup {
                             .getLayoutParams();
 
                     //计算childView的left,top,right,bottom
-                    int lc = left + lp.leftMargin;
-                    int tc = top + lp.topMargin;
-                    int rc = lc + mWidth / 3;
-                    int bc = tc + mWidth / 3;
+                    int lc = left + childViewMargin;
+                    int tc = top + childViewMargin;
+                    int rc = lc + fourViewWidth;
+                    int bc = tc + fourViewWidth;
 
 
                     child.layout(lc, tc, rc, bc);
 
-                    left += mWidth / 3 + lp.rightMargin
-                            + lp.leftMargin;
+                    left += fourViewWidth + lp.rightMargin
+                            + childViewMargin;
                 }
                 left = 0;
-                top += lineHeight;
+                top += lineHeight+childViewMargin;
             }
         }
     }
