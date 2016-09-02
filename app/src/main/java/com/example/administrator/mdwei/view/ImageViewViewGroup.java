@@ -97,7 +97,7 @@ public class ImageViewViewGroup extends ViewGroup {
                  */
                 if (lineWidth + childWidth > mWidth) {
                     width = Math.max(lineWidth, childWidth);// 取最大的
-                    lineWidth = childWidth; // 重新开启新行，开始记录
+                    lineWidth = childWidth+childViewMargin; // 重新开启新行，开始记录
                     // 叠加当前高度，
                     height += lineHeight;
                     // 开启记录下一行的高度
@@ -111,7 +111,7 @@ public class ImageViewViewGroup extends ViewGroup {
                 // 如果是最后一个，则将当前记录的最大宽度和当前lineWidth做比较
                 if (i == cCount - 1) {
                     width = Math.max(width, lineWidth);
-                    height += lineHeight;
+                    height += lineHeight+childViewMargin;
                 }
             }
         }
@@ -142,7 +142,7 @@ public class ImageViewViewGroup extends ViewGroup {
 
         if (cCount == 1) {
             View child = getChildAt(0);
-            child.layout(DensityUtil.dip2px(mContext, 8f), 0, oneViewWidth / 2, (int) (oneViewWidth / 2 * 1.3));
+            child.layout(DensityUtil.dip2px(mContext, 8f), childViewMargin, oneViewWidth / 2, (int) (oneViewWidth / 2 * 1.3));
         } else {
             int viewGroupWidth;
             if (cCount == 4) {
