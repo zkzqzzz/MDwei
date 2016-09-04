@@ -130,6 +130,7 @@
                     android:src="@mipmap/timeline_topic_icon_retweet"/>
 
                 <TextView
+                    android:id="@+id/tv_good_reposts_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="260"/>
@@ -156,6 +157,7 @@
                     android:src="@mipmap/timeline_topic_icon_comment"/>
 
                 <TextView
+                    android:id="@+id/tv_good_comments_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -177,12 +179,14 @@
 
 
                 <ImageView
+                    android:id="@+id/iv_good_linked"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginRight="8dp"
                     android:src="@mipmap/timeline_topic_icon_like"/>
 
                 <TextView
+                    android:id="@+id/tv_good_attitudes_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"

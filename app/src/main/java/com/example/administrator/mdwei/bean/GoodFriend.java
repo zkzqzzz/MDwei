@@ -147,6 +147,7 @@ public class GoodFriend {
         private int comments_count;
         private int attitudes_count;
         private boolean isLongText;
+        private boolean liked;
         private int mlevel;
 
 
@@ -155,6 +156,7 @@ public class GoodFriend {
         private String rid;
         private int userType;
         private List<PicUrlsBean> pic_urls;
+
         public static class PicUrlsBean {
             private String thumbnail_pic;
 
@@ -331,6 +333,15 @@ public class GoodFriend {
         public void setIsLongText(boolean isLongText) {
             this.isLongText = isLongText;
         }
+
+        public boolean getLiked() {
+            return liked;
+        }
+
+        public void setLiked(boolean liked) {
+            this.liked = liked;
+        }
+
 
         public int getMlevel() {
             return mlevel;

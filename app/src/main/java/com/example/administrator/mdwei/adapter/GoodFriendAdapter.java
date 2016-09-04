@@ -130,6 +130,16 @@ public class GoodFriendAdapter extends MultiItemCommonAdapter<GoodFriend.Statuse
             reprintViewGroup.setVisibility(View.GONE);
         }
 
+        holder.setText(R.id.tv_good_reposts_count, statusesBean.getReposts_count() + "");
+        holder.setText(R.id.tv_good_comments_count, statusesBean.getComments_count() + "");
+        holder.setText(R.id.tv_good_attitudes_count, statusesBean.getAttitudes_count() + "");
+
+
+        if (statusesBean.getLiked()) {
+            holder.setImageResource(R.id.iv_good_linked, R.mipmap.timeline_trend_icon_like);
+        } else {
+            holder.setImageResource(R.id.iv_good_linked, R.mipmap.timeline_topic_icon_like);
+        }
 
     }
 }
