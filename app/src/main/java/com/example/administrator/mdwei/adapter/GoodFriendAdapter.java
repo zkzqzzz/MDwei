@@ -3,7 +3,6 @@ package com.example.administrator.mdwei.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -16,8 +15,7 @@ import com.example.administrator.mdwei.base.adapter.MultiItemCommonAdapter;
 import com.example.administrator.mdwei.base.adapter.MultiItemTypeSupport;
 import com.example.administrator.mdwei.base.adapter.ViewHolder;
 import com.example.administrator.mdwei.bean.GoodFriend;
-import com.example.administrator.mdwei.bean.Users;
-import com.example.administrator.mdwei.view.ImageViewViewGroup;
+import com.example.administrator.mdwei.customview.ImageViewViewGroup;
 
 import java.util.List;
 
@@ -141,6 +139,11 @@ public class GoodFriendAdapter extends MultiItemCommonAdapter<GoodFriend.Statuse
             holder.setImageResource(R.id.iv_good_linked, R.mipmap.timeline_topic_icon_like);
         }
 
+
     }
+
+
+
+
 }
 

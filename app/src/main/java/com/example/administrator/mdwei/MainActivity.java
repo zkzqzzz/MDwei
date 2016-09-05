@@ -24,15 +24,13 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.mdwei.bean.Users;
-import com.example.administrator.mdwei.model.goodfriend.GoodFriendFragment;
-import com.example.administrator.mdwei.model.hotblog.HotBlogFragment;
-import com.example.administrator.mdwei.model.topic.TopicFragment;
+import com.example.administrator.mdwei.modular.goodfriend.GoodFriendFragment;
+import com.example.administrator.mdwei.modular.hotblog.HotBlogFragment;
+import com.example.administrator.mdwei.modular.topic.TopicFragment;
 import com.example.administrator.mdwei.service.UsersService;
 import com.example.administrator.mdwei.util.URLConstant;
 import com.example.administrator.mdwei.util.AccessTokenKeeper;
-import com.google.gson.JsonObject;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
-import com.sina.weibo.sdk.openapi.models.User;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.administrator.mdwei.view;
+package com.example.administrator.mdwei.customview;
 
 import android.content.Context;
 import android.content.res.TypedArray;

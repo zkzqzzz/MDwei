@@ -1,4 +1,4 @@
-package com.example.administrator.mdwei.model.topic;
+package com.example.administrator.mdwei.modular.topic;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
